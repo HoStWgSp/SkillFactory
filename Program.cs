@@ -4,19 +4,11 @@
     {
         static void Main(string[] args)
         {
-            Semaphore semaphoreLight;
-
-            semaphoreLight = Semaphore.GREEN;
-
-            Console.WriteLine(semaphoreLight);
+            string name = "Evgeniy";
+            int age = 41;
+            string favcolor = "black";
+            Console.WriteLine("{0}\n  {1}\n {2}", name, age, favcolor);
             Console.ReadKey();
-        }
-
-        enum Semaphore
-        {
-            RED = 100,
-            YELLOW = 200,
-            GREEN = 300
         }
     }
 }
