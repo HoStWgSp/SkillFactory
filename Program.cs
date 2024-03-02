@@ -6,7 +6,17 @@
         {
             string MyName;
             MyName = "Evgeniy";
-            Console.WriteLine(MyName);
+            const string MyLastName = "Kuchenin";
+
+            Console.WriteLine("\tПривет, мир");
+            Console.WriteLine("\tМне 41 год");
+            Console.WriteLine("\tМеня зовут \n\t {0}", MyName);
+            Console.WriteLine("\u0023");
+
+            Console.WriteLine(true);
+            Console.WriteLine(false);
+
+            Console.WriteLine(5);
             Console.ReadKey();
         }
     }
