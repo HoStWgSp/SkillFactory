@@ -7,14 +7,26 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            int[,] array = { { 1, 2, 3 }, { 5, 6, 7 }, { 8, 9, 10 }, { 11, 12, 13 } };
+            var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
 
-            for (int i = 0; i < array.GetUpperBound(1) + 1; i++)
+            int temp;
+
+            for (int i = 0; i < arr.Length; i++)
             {
-                for (int k = 0; k < array.GetUpperBound(0) + 1; k++)
-                    Console.Write(array[k, i] + " ");
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
 
-                Console.WriteLine();
+            foreach (var item in arr)
+            {
+                Console.Write(item);
             }
             Console.ReadKey();
         }
