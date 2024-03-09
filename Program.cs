@@ -7,19 +7,19 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            int[][] array = new int[3][];
-
-            array[0] = new int[2] { 1, 2 };
-            array[1] = new int[3] { 1, 2, 3 };
-            array[2] = new int[5] { 1, 2, 3, 4, 5 };
-
-            foreach (var num in array)
+            int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+            var numbers = 0;
+            for (int i = 0; i < arr.GetUpperBound(0) + 1; i++)
             {
-                foreach (var item in num)
+                for (int j = 0; j < arr.GetUpperBound(1) + 1; j++)
                 {
-                    Console.Write(item + " ");
+                    if (arr[i,j] > 0)
+                        numbers++;
                 }
+                
             }
+
+            Console.WriteLine(numbers);
             Console.ReadKey();
         }
     }
