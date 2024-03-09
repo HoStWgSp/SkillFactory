@@ -7,20 +7,17 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            var (name, age) = ("Евгения", 27);
+            (string Name, string Type, double Age, int NameCount) Pet;
 
-            Console.WriteLine("Моё имя: {0}", name);
-            Console.WriteLine("Мой возраст: {0}", age);
+            Console.WriteLine("Введите имя питомца");
+            Pet.Name = Console.ReadLine();
+            Pet.NameCount = Pet.Name.Length;
 
-            (string name, int age) anketa;
+            Console.WriteLine("Введите вид питомца");
+            Pet.Type = Console.ReadLine();
 
-            Console.Write("Введите имя: ");
-            anketa.name = Console.ReadLine();
-            Console.Write("Введите аозраст с цафрами: ");
-            anketa.age=Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Ваше имя: {0}", anketa.name);
-            Console.WriteLine("Ваш возраст: {0}", anketa.age);
+            Console.WriteLine("Введите возрас питомца");
+            Pet.Age = double.Parse(Console.ReadLine());
 
             Console.ReadKey();
         }
