@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EducationProcess
 {
@@ -6,33 +7,48 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
 
-            var color = Console.ReadLine();
+            string[] favcolors = new string[3];
 
-            switch (color)
+            for (int i = 0; i < favcolors.Length; i++)
             {
-                case "red":
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is red!");
-                    break;
-
-                case "green":
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is green!");
-                    break;
-
-                default:
-                    Console.BackgroundColor = ConsoleColor.Cyan;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine("Your color is cyan!");
-                    break;
+                Console.WriteLine("Введите любимый цвет номер {0}", i + 1);
+                favcolors[i] = Console.ReadLine();
             }
+
+            foreach (var color in favcolors)
+                switch (color)
+                {
+                    case "red":
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Black;
+
+                        Console.WriteLine("Your color is red!");
+                        break;
+
+                    case "green":
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Black;
+
+                        Console.WriteLine("Your color is green!");
+                        break;
+
+                    case "cyan":
+                        Console.BackgroundColor = ConsoleColor.Cyan;
+                        Console.ForegroundColor = ConsoleColor.Black;
+
+                        Console.WriteLine("Your color is cyan!");
+                        break;
+
+                    default:
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.WriteLine("Your color is yellow!");
+                        break;
+                }
+
+
             Console.ReadKey();
         }
     }
