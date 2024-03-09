@@ -7,28 +7,20 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
-            var numbers = 0;
-            int numvar;
-            for (int i = 0; i <= arr.GetUpperBound(0); i++)
-            {
-                for (int j = 0; j <= arr.GetUpperBound(1); j++)
-                {
-                    
-                    for (int k = j + 1; k <= arr.GetUpperBound(1); k++)
-                    {
-                        if (arr[i, j] > arr[i, k])
-                        {
-                            numvar = arr[i, j];
-                            arr[i, j] = arr[i, k];
-                            arr[i, k] = numvar;
-                        }
-                    }
-                    Console.Write(arr[i, j]);
+            var (name, age) = ("Евгения", 27);
 
-                }
-                Console.WriteLine();
-            }
+            Console.WriteLine("Моё имя: {0}", name);
+            Console.WriteLine("Мой возраст: {0}", age);
+
+            (string name, int age) anketa;
+
+            Console.Write("Введите имя: ");
+            anketa.name = Console.ReadLine();
+            Console.Write("Введите аозраст с цафрами: ");
+            anketa.age=Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Ваше имя: {0}", anketa.name);
+            Console.WriteLine("Ваш возраст: {0}", anketa.age);
 
             Console.ReadKey();
         }
