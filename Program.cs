@@ -19,6 +19,12 @@ namespace EducationProcess
             User.Login = Console.ReadLine();
             User.LoginLength = User.Login.Length;
 
+            Console.WriteLine("Есть ли у вас животные? Да или Нет");
+            if (Console.ReadLine() == "Да")
+                User.HasPet = true;
+            else
+                User.HasPet = false;
+
             Console.ReadKey();
         }
     }
