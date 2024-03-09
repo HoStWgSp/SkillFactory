@@ -17,6 +17,7 @@ namespace EducationProcess
 
             Console.WriteLine("Введите логин");
             User.Login = Console.ReadLine();
+            User.LoginLength = User.Login.Length;
 
             Console.ReadKey();
         }
