@@ -7,17 +7,16 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            (string Name, string Type, double Age, int NameCount) Pet;
+            (string Name, string LastName, string Login, int LoginLength, bool HasPet, string[] favcolors, double Age) User;
 
-            Console.WriteLine("Введите имя питомца");
-            Pet.Name = Console.ReadLine();
-            Pet.NameCount = Pet.Name.Length;
+            Console.WriteLine("Введите имя");
+            User.Name = Console.ReadLine();
 
-            Console.WriteLine("Введите вид питомца");
-            Pet.Type = Console.ReadLine();
+            Console.WriteLine("Введите фамилию");
+            User.LastName = Console.ReadLine();
 
-            Console.WriteLine("Введите возрас питомца");
-            Pet.Age = double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите логин");
+            User.Login = Console.ReadLine();
 
             Console.ReadKey();
         }
