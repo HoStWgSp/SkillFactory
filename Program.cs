@@ -25,6 +25,17 @@ namespace EducationProcess
             else
                 User.HasPet = false;
 
+            Console.WriteLine("Введите возраст пользователя");
+            User.Age=Convert.ToInt32(Console.ReadLine());
+
+            User.favcolors = new string[3];
+
+            Console.WriteLine("Введите три любимых цвета пользователя");
+            for (int i = 0; i < User.favcolors.Length; i++)
+            {
+                User.favcolors[i] = Console.ReadLine();
+            }
+
             Console.ReadKey();
         }
     }
