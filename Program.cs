@@ -10,11 +10,11 @@ namespace EducationProcess
         static void Main(string[] args)
         {
             int age = 41;
-            ChangeAge(age);
+            ChangeAge(ref age);
             Console.WriteLine(age);
             Console.ReadKey();
         }
-        static void ChangeAge(int age)
+        static void ChangeAge(ref int age)
         {
             Console.WriteLine("Введите ваш возраст");
             age = Convert.ToInt32(Console.ReadLine());
