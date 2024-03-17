@@ -23,15 +23,17 @@ namespace EducationProcess
                 result[i] = int.Parse(Console.ReadLine());
             }
 
-            int[] sortedarray = ArraySort.ArraySortUp(result);
 
-            ShowNumbers(sortedarray);
+            ShowNumbers(result, true);
 
             return result;
         }
-        static void ShowNumbers(params int[] colors)
+        static void ShowNumbers(int[] result, bool IsSort = false)
         {
-            foreach (var res in colors)
+            var temp = result;
+            if(IsSort) 
+                ArraySort.ArraySortUp(temp); 
+            foreach (var res in temp)
                 Console.WriteLine(res);
         }
     }
