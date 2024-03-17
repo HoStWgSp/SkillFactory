@@ -9,29 +9,15 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            var array = GetArrayFromConsole(10);
-            ShowNumbers(array, true);
+            int age = 41;
+            ChangeAge(age);
+            Console.WriteLine(age);
             Console.ReadKey();
         }
-        static int[] GetArrayFromConsole(int num = 5)
+        static void ChangeAge(int age)
         {
-            var result = new int[num];
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-                result[i] = int.Parse(Console.ReadLine());
-            }
-
-            return result;
-        }
-        static void ShowNumbers(int[] result, bool IsSort = false)
-        {
-            var temp = result;
-            if(IsSort) 
-                ArraySort.ArraySortUp(temp); 
-            foreach (var res in temp)
-                Console.WriteLine(res);
+            Console.WriteLine("Введите ваш возраст");
+            age = Convert.ToInt32(Console.ReadLine());
         }
     }
 }
