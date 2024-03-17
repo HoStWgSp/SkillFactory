@@ -11,31 +11,11 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(PowerUp(5, 4));
-
-            Console.ReadKey();
+           
         }
-        private static int PowerUp(int N, byte pow)
+        static (string Name, string LastName, int Age) EnterUser()
         {
-            if (pow == 0)
-            {
-                return 1;
-            }
-            else
-            {
 
-                if (pow == 1)
-                {
-                    return N;
-
-                }
-                else
-                {
-                    return N * PowerUp(N, --pow);
-
-                }
-            }
         }
-
     }
 }
