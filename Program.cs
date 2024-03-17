@@ -27,7 +27,7 @@ namespace EducationProcess
 
             for (int i = 0; i < favcolors.Length; i++) 
             {
-                favcolors[i] = ShowColor(Name); 
+                favcolors[i] = ShowColor(Name, Age); 
             }
 
             foreach (var color in favcolors)
@@ -37,9 +37,9 @@ namespace EducationProcess
 
             Console.ReadKey();
         }
-        static string ShowColor(string username)
+        static string ShowColor(string username, int userage)
         {
-            Console.WriteLine("{0} напишите свой любимый цвет на английском языке", username);
+            Console.WriteLine("{0}, {1} лет\nНапишите свой любимый цвет на английском языке", username, userage);
             string color = Console.ReadLine();
             switch (color)
             {
