@@ -8,7 +8,7 @@ namespace EducationProcess
 {
     internal class ArraySort
     {
-        public static int[] ArraySortUp (params int[] result)
+        public static int[] ArraySortUp (int[] result)
         {
             int temp = 0;
             for (int i = 0; i < result.Length; i++)

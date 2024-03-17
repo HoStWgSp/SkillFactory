@@ -25,10 +25,14 @@ namespace EducationProcess
 
             result = ArraySort.ArraySortUp(result);
 
-            foreach (var res in result) 
-                Console.WriteLine(res);
+            ShowNumbers(result[0], result[2]);
 
             return result;
+        }
+        static void ShowNumbers(params int[] colors)
+        {
+            foreach (var res in colors)
+                Console.WriteLine(res);
         }
     }
 }
