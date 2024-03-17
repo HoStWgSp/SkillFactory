@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.ExceptionServices;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -9,27 +10,19 @@ namespace EducationProcess
         static void Main(string[] args)
         {
 
-            var (Name, Age) = ("Евгений", 41);
+            string[] favcolors = new string[3];
 
-            Console.WriteLine("Мое имя {0}", Name);
-            Console.WriteLine("Мой возраст {0}", Age);
+            for (int i = 0; i < favcolors.Length; i++) favcolors[i] = ShowColor();
 
-            Console.Write("Введите имя: ");
-            Name = Console.ReadLine();
-            Console.Write("Введите возраст цифрами: ");
-            Age = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Мое имя {0}", Name);
-            Console.WriteLine("Мой возраст {0}", Age);
-
-            ShowColor();
+            for (int i = 0;i < favcolors.Length; i++) Console.WriteLine("Ваши любимые цвета: {0}", favcolors[i]);
 
             Console.ReadKey();
         }
-        static void ShowColor()
+        static string ShowColor()
         {
             Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
-            switch (Console.ReadLine())
+            string color = Console.ReadLine();
+            switch (color)
             {
                 case "red":
                     Console.BackgroundColor = ConsoleColor.Red;
@@ -61,6 +54,7 @@ namespace EducationProcess
 
                     break;
             }
+            return color;
         }
     }
 }
