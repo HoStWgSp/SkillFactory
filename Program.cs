@@ -9,8 +9,8 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            GetArrayFromConsole();
-
+            var array = GetArrayFromConsole(10);
+            ShowNumbers(array, true);
             Console.ReadKey();
         }
         static int[] GetArrayFromConsole(int num = 5)
@@ -22,9 +22,6 @@ namespace EducationProcess
                 Console.WriteLine("Введите элемент массива номер {0}", i + 1);
                 result[i] = int.Parse(Console.ReadLine());
             }
-
-
-            ShowNumbers(result, true);
 
             return result;
         }
