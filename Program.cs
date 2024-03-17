@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
@@ -9,15 +11,28 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            int age = 41;
-            ChangeAge(ref age);
-            Console.WriteLine(age);
+            Console.WriteLine("Напишите что-то");
+            var str = Console.ReadLine();
+
+            Console.WriteLine("Укажите глубину эха");
+            var deep = int.Parse(Console.ReadLine());
+
+            Echo(str, deep);
+
             Console.ReadKey();
         }
-        static void ChangeAge(ref int age)
+        static void Echo(string saidworld, int deep)
         {
-            Console.WriteLine("Введите ваш возраст");
-            age = Convert.ToInt32(Console.ReadLine());
+            var modif = saidworld;
+            if (modif.Length > 2)
+            {
+                modif = modif.Remove(0, 2);
+            }
+            Console.WriteLine("..." + modif);
+            if (deep > 1)
+            {
+                Echo(modif, deep - 1);
+            }
         }
     }
 }
