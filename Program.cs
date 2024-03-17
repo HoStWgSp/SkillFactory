@@ -39,7 +39,7 @@ namespace EducationProcess
         }
         static string ShowColor(string username)
         {
-            Console.WriteLine("Введите любимый цвет");
+            Console.WriteLine("{0} напишите свой любимый цвет на английском языке", username);
             string color = Console.ReadLine();
             switch (color)
             {
