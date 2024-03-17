@@ -11,38 +11,30 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Напишите что-то");
-            var str = Console.ReadLine();
-
-            Console.WriteLine("Укажите глубину эха");
-            var deep = int.Parse(Console.ReadLine());
-
-            Echo(str, deep);
+            Console.WriteLine(PowerUp(5, 4));
 
             Console.ReadKey();
         }
-        static void Echo(string saidworld, int deep)
+        private static int PowerUp(int N, byte pow)
         {
-            var modif = saidworld;
-            if (modif.Length > 2)
+            if (pow == 0)
             {
-                modif = modif.Remove(0, 2);
+                return 1;
             }
-            Console.BackgroundColor = (System.ConsoleColor)(ConsoleColor)deep;
-            Console.WriteLine("..." + modif);
-            if (deep > 1)
+            else
             {
-                Echo(modif, deep - 1);
+
+                if (pow == 1)
+                {
+                    return N;
+
+                }
+                else
+                {
+                    return N * PowerUp(N, --pow);
+
+                }
             }
-        }
-        public enum ConsoleColor 
-        {
-            Red = 1,
-            Green = 2,
-            Blue = 3,
-            Cyan = 4,
-            Yellow = 5,
-            magenta = 6,
         }
 
     }
