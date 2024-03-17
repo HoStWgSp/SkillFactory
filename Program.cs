@@ -28,11 +28,22 @@ namespace EducationProcess
             {
                 modif = modif.Remove(0, 2);
             }
+            Console.BackgroundColor = (System.ConsoleColor)(ConsoleColor)deep;
             Console.WriteLine("..." + modif);
             if (deep > 1)
             {
                 Echo(modif, deep - 1);
             }
         }
+        public enum ConsoleColor 
+        {
+            Red = 1,
+            Green = 2,
+            Blue = 3,
+            Cyan = 4,
+            Yellow = 5,
+            magenta = 6,
+        }
+
     }
 }
