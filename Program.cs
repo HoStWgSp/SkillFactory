@@ -23,9 +23,9 @@ namespace EducationProcess
                 result[i] = int.Parse(Console.ReadLine());
             }
 
-            result = ArraySort.ArraySortUp(result);
+            int[] sortedarray = ArraySort.ArraySortUp(result);
 
-            ShowNumbers(result[0], result[2]);
+            ShowNumbers(sortedarray);
 
             return result;
         }
