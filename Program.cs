@@ -13,50 +13,33 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            Rectangle rectangle = new Rectangle();
-            int s = rectangle.Square();
-
-            Console.WriteLine("Площадь треугольника = {0}", s);
-
-            rectangle = new Rectangle(20);
-            s = rectangle.Square();
-
-            Console.WriteLine("Площадь треугольника = {0}", s);
-
-            rectangle = new Rectangle(20, 30);
-            s = rectangle.Square();
-
-            Console.WriteLine("Площадь треугольника = {0}", s);
-
+            var department = GetCurrentDepartment();
             Console.ReadKey();
         }
-        
+        static Department GetCurrentDepartment()
+        {
+            var department = new Department();
+            if (department?.Company?.Type == "Банк" && department?.City?.Name == "Санкт-Петербург")
+            {
+                Console.WriteLine("У банка {0} есть отделение в Санкт-Петербурге", department?.Company?.Name ?? "Неизвестная компания");
+            }
+            return department;
+        }
     }
-    class Rectangle
+    class Company
     {
-        public int a;
-        public int b;
+        public string Type;
+        public string Name;
+    }
 
-        public Rectangle()
-        {
-            a = 6;
-            b = 4;
-        }
+    class Department
+    {
+        public Company Company;
+        public City City;
+    }
 
-        public Rectangle(int side)
-        {
-            a = b = side;
-        }
-
-        public Rectangle(int firstSide, int secondSide)
-        {
-            a = firstSide;
-            b = secondSide;
-        }
-
-        public int Square()
-        {
-            return a * b;
-        }
+    class City
+    {
+        public string Name;
     }
 }
