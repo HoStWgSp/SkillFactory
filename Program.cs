@@ -13,33 +13,21 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            var department = GetCurrentDepartment();
+            Bus bus = new Bus();
+            bus.PrintStatus();
             Console.ReadKey();
         }
-        static Department GetCurrentDepartment()
+    }
+    class Bus
+    {
+        public int? Load = 20;
+
+        public void PrintStatus()
         {
-            var department = new Department();
-            if (department?.Company?.Type == "Банк" && department?.City?.Name == "Санкт-Петербург")
-            {
-                Console.WriteLine("У банка {0} есть отделение в Санкт-Петербурге", department?.Company?.Name ?? "Неизвестная компания");
-            }
-            return department;
+            if (Load.HasValue && Load > 0)
+                Console.WriteLine("В автобусе {0} пассажиров!", Load.Value);
+            else
+                Console.WriteLine("Автобус пуст!");
         }
-    }
-    class Company
-    {
-        public string Type;
-        public string Name;
-    }
-
-    class Department
-    {
-        public Company Company;
-        public City City;
-    }
-
-    class City
-    {
-        public string Name;
     }
 }
