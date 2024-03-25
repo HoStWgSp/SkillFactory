@@ -13,32 +13,50 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            Pen pen = new Pen();
-            pen.Greetings();
+            Rectangle rectangle = new Rectangle();
+            int s = rectangle.Square();
+
+            Console.WriteLine("Площадь треугольника = {0}", s);
+
+            rectangle = new Rectangle(20);
+            s = rectangle.Square();
+
+            Console.WriteLine("Площадь треугольника = {0}", s);
+
+            rectangle = new Rectangle(20, 30);
+            s = rectangle.Square();
+
+            Console.WriteLine("Площадь треугольника = {0}", s);
 
             Console.ReadKey();
         }
         
     }
-    class Pen
+    class Rectangle
     {
-        public string color;
-        public int cost;
+        public int a;
+        public int b;
 
-        public Pen()
+        public Rectangle()
         {
-            color = "Черный";
-            cost = 100;
-        }
-        public Pen(string penColor, int penCost)
-        {
-            color = penColor;
-            cost = penCost;
+            a = 6;
+            b = 4;
         }
 
-        public void Greetings()
+        public Rectangle(int side)
         {
-            Console.WriteLine("Цвет {0}, стоимость {1}", color, cost);
+            a = b = side;
+        }
+
+        public Rectangle(int firstSide, int secondSide)
+        {
+            a = firstSide;
+            b = secondSide;
+        }
+
+        public int Square()
+        {
+            return a * b;
         }
     }
 }
