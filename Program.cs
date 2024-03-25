@@ -13,21 +13,47 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            Bus bus = new Bus();
-            bus.PrintStatus();
             Console.ReadKey();
         }
     }
-    class Bus
+    class Circle
     {
-        public int? Load = 20;
+        public double radius;
 
-        public void PrintStatus()
+        public double Square()
         {
-            if (Load.HasValue && Load > 0)
-                Console.WriteLine("В автобусе {0} пассажиров!", Load.Value);
-            else
-                Console.WriteLine("Автобус пуст!");
+        }
+
+        public double Length()
+        {
+        }
+    }
+
+    class Triangle
+    {
+        public int a;
+        public int b;
+        public int c;
+
+        public double Square()
+        {
+        }
+
+        public double Perimeter()
+        {
+        }
+    }
+
+    class Square
+    {
+        public int side;
+
+        public double Square()
+        {
+        }
+
+        public double Perimeter()
+        {
         }
     }
 }
