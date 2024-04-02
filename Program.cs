@@ -14,32 +14,30 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            Obj obj1 = new Obj { Value = 4 };
-            Obj obj2 = new Obj { Value = 5 };
-
-            Obj obj3 = obj1 + obj2;
-
-            Console.WriteLine(obj3.Value);
+            
 
             Console.ReadKey();
         }
-        class Obj
+        class IndexingClass
         {
-            public int Value;
+            private int[] array;
 
-            public static Obj operator +(Obj a, Obj b)
+            public IndexingClass(int[] array)
             {
-                return new Obj
-                {
-                    Value = a.Value + b.Value
-                };
+                this.array = array;
             }
-            public static Obj operator -(Obj a, Obj b)
+
+            public int this[int index]
             {
-                return new Obj
+                get
                 {
-                    Value = a.Value - b.Value
-                };
+                    return array[index];
+                }
+
+                set
+                {
+                    array[index] = value;
+                }
             }
         }
     }
