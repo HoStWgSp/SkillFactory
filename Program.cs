@@ -18,17 +18,22 @@ namespace EducationProcess
         }
         class BaseClass
         {
-            public virtual void Display()
+            public virtual int Counter
             {
-                Console.WriteLine("Метод класса BaseClass");
+                get;
+                set;
             }
         }
 
         class DerivedClass : BaseClass
         {
-            public override void Display()
+            public override int Counter
             {
-                Console.WriteLine("Метод класса DerivedClass");
+                get {  return Counter; }
+                set
+                {
+                    if (value >= 0) Counter = value;
+                }
             }
         }
     }
