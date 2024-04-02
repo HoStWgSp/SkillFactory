@@ -13,63 +13,22 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            User user = new User();
-
-            // Setter
-            user.Age = 23;
-            user.Login = "Lo";
-            user.Email = "loginmail.ru";
-
-            // Getter
-            Console.WriteLine(user.Age);
-            Console.WriteLine(user.Login);
-            Console.WriteLine(user.Email);
+            
             Console.ReadKey();
         }
-    }
-    class User
-    {
-        private int age;
-        private string login, email;
-
-        public int Age
+        class Employee
         {
-            get
-            {
-                return age;
-            }
-
-            set
-            {
-                if (value < 18)
-                {
-                    Console.WriteLine("Возраст должен быть не меньше 18");
-                }
-                else
-                {
-                    age = value;
-                }
-            }
+            public string Name;
+            public int Age;
+            public int Salary;
         }
-
-        public string Login
+        class ProjectManager : Employee
         {
-            get { return login; }
-            set
-            {
-                if (value.Length >= 3) login = value;
-                else Console.WriteLine("Логин должен быть 3 и более символа!");
-            }
+            public string ProjectName;
         }
-
-        public string Email
+        class Develjper:Employee
         {
-            get { return email; }
-            set
-            {
-                if (value.Contains('@')) email = value;
-                else Console.WriteLine("Неверный формат электронной почты!");
-            }
+            public string ProgrammingLanguage;
         }
     }
 }
