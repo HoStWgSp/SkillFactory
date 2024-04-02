@@ -18,9 +18,13 @@ namespace EducationProcess
         }
     }
     
-    class Car<T>
+    class Car<T1>
     {
-        public T Engine;
+        public T1 Engine;
+        public virtual void  ChangePart<T2>(T2 newPart)
+        {
+
+        }
     }
     class ElectricEngine
     {
@@ -31,10 +35,16 @@ namespace EducationProcess
 
     }
 
-    class Record<T1, T2>
+    class Battery
     {
-        public T1 Id;
-        public DateTime Date;
-        public T2 Value;
+
+    }
+    class Differential
+    {
+
+    }
+    class Wheel
+    {
+
     }
 }
