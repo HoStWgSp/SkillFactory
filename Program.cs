@@ -17,7 +17,7 @@ namespace EducationProcess
             Console.ReadKey();            
         }
     }
-    class Engine
+   abstract class Engine
     {
 
     }
@@ -25,7 +25,7 @@ namespace EducationProcess
 
     class GasEngine : Engine { }
 
-    class CarPart { }
+    abstract class CarPart { }
 
     class Battery : CarPart { }
 
@@ -33,42 +33,25 @@ namespace EducationProcess
 
     class Wheel : CarPart { }
 
-    class Car<T1> where T1 : Engine
+    abstract class Car<TEngine> where TEngine : Engine
     {
-        public T1 Engine;
+        public TEngine Engine;
 
-        public virtual void ChangePart<T2>(T2 newPart) where T2 : CarPart
+        public abstract void ChangePart<TPart>(TPart newPart) where TPart : CarPart;
+    }
+    class GasCar : Car<ElectricEngine>
+    {
+        public override void ChangePart<TPart>(TPart newPart)
+        {
+            
+        }
+
+    }
+    class ElectricCar : Car<GasEngine>
+    {
+        public override void ChangePart<TPart>(TPart newPart)
         {
 
         }
     }
-    //class Car<T1>
-    //{
-    //    public T1 Engine;
-    //    public virtual void ChangePart<T2>(T2 newPart)
-    //    {
-
-    //    }
-    //}
-    //class ElectricEngine
-    //{
-
-    //}
-    //class GasEngine
-    //{
-
-    //}
-
-    //class Battery
-    //{
-
-    //}
-    //class Differential
-    //{
-
-    //}
-    //class Wheel
-    //{
-
-    //}
 }
