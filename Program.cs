@@ -16,21 +16,25 @@ namespace EducationProcess
             
             Console.ReadKey();
         }
-        class BaseClass
+        class A
         {
-            public virtual void Display()
-            {
-                Console.WriteLine("Метод класса BaseClass");
-            }
+            public virtual void Display() { Console.WriteLine("A"); }
         }
-
-        class DerivedClass : BaseClass
+        class B : A
         {
-            public override void Display()
-            {
-                base.Display();
-                Console.WriteLine("Метод класса DerivedClass");
-            }
+            public new void Display() { Console.WriteLine("B"); }   
+        }
+        class C : A
+        {
+            public override void Display() { Console.WriteLine("C"); }
+        }
+        class D : B
+        {
+            public new void Display() { Console.WriteLine("D"); }
+        }
+        class E : C
+        {
+            public new void Display() { Console.WriteLine("E"); }
         }
     }
 }
