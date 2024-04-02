@@ -18,27 +18,24 @@ namespace EducationProcess
 
             Console.ReadKey();
         }
-        class IndexingClass
+        abstract class ComputerPart
         {
-            private int[] array;
+            public abstract void Work();
+        }
 
-            public IndexingClass(int[] array)
-            {
-                this.array = array;
-            }
+        class Processor : ComputerPart
+        {
+            public override void Work() { }
+        }
 
-            public int this[int index]
-            {
-                get
-                {
-                    return array[index];
-                }
+        class MotherBoard : ComputerPart
+        {
+            public override void Work() { }
+        }
 
-                set
-                {
-                    array[index] = value;
-                }
-            }
+        class GraphicCard : ComputerPart
+        {
+            public override void Work() { }
         }
     }
 }
