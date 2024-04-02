@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks.Dataflow;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -13,35 +14,33 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            D d = new D();
-            E e = new E();
+            Obj obj1 = new Obj { Value = 4 };
+            Obj obj2 = new Obj { Value = 5 };
 
-            d.Display();
-            ((A)e).Display();
-            ((B)d).Display();
-            ((A)d).Display();
+            Obj obj3 = obj1 + obj2;
+
+            Console.WriteLine(obj3.Value);
 
             Console.ReadKey();
         }
-        class A
+        class Obj
         {
-            public virtual void Display() { Console.WriteLine("A"); }
-        }
-        class B : A
-        {
-            public new void Display() { Console.WriteLine("B"); }   
-        }
-        class C : A
-        {
-            public override void Display() { Console.WriteLine("C"); }
-        }
-        class D : B
-        {
-            public new void Display() { Console.WriteLine("D"); }
-        }
-        class E : C
-        {
-            public new void Display() { Console.WriteLine("E"); }
+            public int Value;
+
+            public static Obj operator +(Obj a, Obj b)
+            {
+                return new Obj
+                {
+                    Value = a.Value + b.Value
+                };
+            }
+            public static Obj operator -(Obj a, Obj b)
+            {
+                return new Obj
+                {
+                    Value = a.Value - b.Value
+                };
+            }
         }
     }
 }
