@@ -17,34 +17,58 @@ namespace EducationProcess
             Console.ReadKey();            
         }
     }
-    
-    class Car<T1>
+    class Engine
+    {
+
+    }
+    class ElectricEngine : Engine { }
+
+    class GasEngine : Engine { }
+
+    class CarPart { }
+
+    class Battery : CarPart { }
+
+    class Differential : CarPart { }
+
+    class Wheel : CarPart { }
+
+    class Car<T1> where T1 : Engine
     {
         public T1 Engine;
-        public virtual void  ChangePart<T2>(T2 newPart)
+
+        public virtual void ChangePart<T2>(T2 newPart) where T2 : CarPart
         {
 
         }
     }
-    class ElectricEngine
-    {
+    //class Car<T1>
+    //{
+    //    public T1 Engine;
+    //    public virtual void ChangePart<T2>(T2 newPart)
+    //    {
 
-    }
-    class GasEngine
-    {
+    //    }
+    //}
+    //class ElectricEngine
+    //{
 
-    }
+    //}
+    //class GasEngine
+    //{
 
-    class Battery
-    {
+    //}
 
-    }
-    class Differential
-    {
+    //class Battery
+    //{
 
-    }
-    class Wheel
-    {
+    //}
+    //class Differential
+    //{
 
-    }
+    //}
+    //class Wheel
+    //{
+
+    //}
 }
