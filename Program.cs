@@ -15,7 +15,12 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-           
+            Dictionary<string, Folder> Folders = new Dictionary<string, Folder>();
+
+            void CreateFolder(string name)
+            {
+                Folders.Add(name, new Folder());
+            }
             Console.ReadKey();            
         }
     }
