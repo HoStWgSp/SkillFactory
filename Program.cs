@@ -22,17 +22,23 @@ namespace EducationProcess
             {
                 try
                 {
-                    DirectoryInfo dirInfo = new DirectoryInfo(@"C:\" /* Или С:\\ для Windows */ );
-                    if (dirInfo.Exists)
+                    DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\gridar\Desktop\testFolder");
+
+                    if (!dirInfo.Exists)
                     {
-                        Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
+                        dirInfo.Create();
+                        Console.WriteLine("Каталог создан");
                     }
+                    string newPath = @"C:\Users\gridar\Desktop\Новаяпапка\testFolder";
+                    dirInfo.MoveTo(newPath);
 
-                    DirectoryInfo newDirectory = new DirectoryInfo(@"/newDirectory");
-                    if (newDirectory.Exists)
+                    Console.WriteLine("Директория перемещена в Корзину");
 
-                        newDirectory.Delete(true);
-                    Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
+                    //DirectoryInfo newDirectory = new DirectoryInfo(@" / newDirectory");
+                    //if (newDirectory.Exists)
+
+                    //    newDirectory.Delete(true);
+                    //Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
                 }
                 catch (Exception e)
                 {
