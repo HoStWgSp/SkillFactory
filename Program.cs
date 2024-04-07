@@ -20,18 +20,23 @@ namespace EducationProcess
 
             static void GetCatalogs()
             {
-                string dirName = @"C:\"; // Прописываем путь к корневой директории MacOS (для Windows скорее всего тут будет "C:\\")
-                if (Directory.Exists(dirName)) // Проверим, что директория существует
+                try
                 {
-                    Console.WriteLine();
-                    string[] dirs = Directory.GetDirectories(dirName);  // Получим все директории корневого каталога
+                    DirectoryInfo dirInfo = new DirectoryInfo(@"C:\" /* Или С:\\ для Windows */ );
+                    if (dirInfo.Exists)
+                    {
+                        Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
+                    }
 
-                    Console.WriteLine("Количество папок - {0}", dirs.Length);
+                    DirectoryInfo newDirectory = new DirectoryInfo(@"/newDirectory");
+                    if (!newDirectory.Exists)
+                        newDirectory.Create();
 
-                    Console.WriteLine();
-                    string[] files = Directory.GetFiles(dirName);// Получим все файлы корневого каталога
-
-                    Console.WriteLine("Количество файлов - {0}", files.Length);
+                    Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
                 }
             }
         
