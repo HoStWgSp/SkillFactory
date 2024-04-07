@@ -29,9 +29,9 @@ namespace EducationProcess
                     }
 
                     DirectoryInfo newDirectory = new DirectoryInfo(@"/newDirectory");
-                    if (!newDirectory.Exists)
-                        newDirectory.Create();
+                    if (newDirectory.Exists)
 
+                        newDirectory.Delete(true);
                     Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
                 }
                 catch (Exception e)
