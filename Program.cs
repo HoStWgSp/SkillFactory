@@ -18,19 +18,8 @@ namespace EducationProcess
 
         static void Main(string[] args)
         {
-            // объект для сериализации
-            var contact = new Contact("Евгений", 89995556325, "fjfjfjf@kfjs.ru");
-            Console.WriteLine("Контакт создан");
-
-
-
-            BinaryFormatter formatter = new BinaryFormatter();
-            // получаем поток, куда будем записывать сериализованный объект
-            using (var fs = new FileStream("Contact.bin", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, contact);
-                Console.WriteLine("Контакт сериализован");
-            }
+            FolderClean.ClenFolder(@"C:\Users\gridar\Desktop\Новаяпапка");
+            
             Console.ReadLine();
         }    
     } 
