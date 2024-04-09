@@ -15,39 +15,22 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-                GetCatalogs(); //   Вызов метода получения директорий
-            
-
-            static void GetCatalogs()
-            {
-                try
-                {
-                    DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\gridar\Desktop\testFolder");
-
-                    if (!dirInfo.Exists)
-                    {
-                        dirInfo.Create();
-                        Console.WriteLine("Каталог создан");
-                    }
-                    string newPath = @"C:\Users\gridar\Desktop\Новаяпапка\testFolder";
-                    dirInfo.MoveTo(newPath);
-
-                    Console.WriteLine("Директория перемещена в Корзину");
-
-                    //DirectoryInfo newDirectory = new DirectoryInfo(@" / newDirectory");
-                    //if (newDirectory.Exists)
-
-                    //    newDirectory.Delete(true);
-                    //Console.WriteLine(dirInfo.GetDirectories().Length + dirInfo.GetFiles().Length);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-            }
-        
+            ProgInfo();
 
         Console.ReadKey();
+        }
+        public static void ProgInfo()
+        {
+            string filePath = @"C:\Users\gridar\Documents\Projects\VisualStudio\SkillFactory\EducationProcess\Program.cs";
+
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                string str = "";
+                while ((str = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(str);
+                }
+            }
         }
     }
 }
