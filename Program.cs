@@ -3,24 +3,42 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks.Dataflow;
 using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
+using System;
+using System.IO;
+
 
 namespace EducationProcess
 {
     internal class Program
     {
-        
+
         static void Main(string[] args)
         {
-            FileValues.ValuesWrite(@"C:\Users\gridar\Desktop\BinaryFile.bin");
-            FileValues.ValuesRead(@"C:\Users\gridar\Desktop\BinaryFile.bin");
+            // объект для сериализации
+            var person = new Pet("Rex", 2);
+            Console.WriteLine("Объект создан");
 
 
-        Console.ReadKey();
-        }
-        
-    }
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            // получаем поток, куда будем записывать сериализованный объект
+            using (var fs = new FileStream("myPets.dat", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, person);
+                Console.WriteLine("Объект сериализован");
+            }
+            // десериализация
+            using (var fs = new FileStream("myPets.dat", FileMode.OpenOrCreate))
+            {
+                var newPet = (Pet)formatter.Deserialize(fs);
+                Console.WriteLine("Объект десериализован");
+                Console.WriteLine($"Имя: {newPet.Name} --- Возраст: {newPet.Age}");
+            }
+            Console.ReadLine();
+        }    
+    } 
 }
