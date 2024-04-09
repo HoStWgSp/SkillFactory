@@ -19,24 +19,17 @@ namespace EducationProcess
         static void Main(string[] args)
         {
             // объект для сериализации
-            var person = new Pet("Rex", 2);
-            Console.WriteLine("Объект создан");
+            var contact = new Contact("Евгений", 89995556325, "fjfjfjf@kfjs.ru");
+            Console.WriteLine("Контакт создан");
 
 
 
             BinaryFormatter formatter = new BinaryFormatter();
             // получаем поток, куда будем записывать сериализованный объект
-            using (var fs = new FileStream("myPets.dat", FileMode.OpenOrCreate))
+            using (var fs = new FileStream("Contact.bin", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, person);
-                Console.WriteLine("Объект сериализован");
-            }
-            // десериализация
-            using (var fs = new FileStream("myPets.dat", FileMode.OpenOrCreate))
-            {
-                var newPet = (Pet)formatter.Deserialize(fs);
-                Console.WriteLine("Объект десериализован");
-                Console.WriteLine($"Имя: {newPet.Name} --- Возраст: {newPet.Age}");
+                formatter.Serialize(fs, contact);
+                Console.WriteLine("Контакт сериализован");
             }
             Console.ReadLine();
         }    
