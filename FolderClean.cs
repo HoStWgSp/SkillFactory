@@ -46,7 +46,7 @@ namespace EducationProcess
                         {
                             File.Delete(f);
                         }
-                        Console.WriteLine("Все каталоги из Новаяпапка были удалены");
+                        //Console.WriteLine("Все каталоги из Новаяпапка были удалены");
                     }
                     catch (Exception e) { Console.WriteLine(e); }
                 }
