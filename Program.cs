@@ -15,7 +15,9 @@ namespace EducationProcess
         
         static void Main(string[] args)
         {
-            BinRead.FileInfo(@"C:\Users\gridar\Desktop\BinaryFile.bin");
+            FileValues.ValuesWrite(@"C:\Users\gridar\Desktop\BinaryFile.bin");
+            FileValues.ValuesRead(@"C:\Users\gridar\Desktop\BinaryFile.bin");
+
 
         Console.ReadKey();
         }
