@@ -18,8 +18,9 @@ namespace EducationProcess
 
         static void Main(string[] args)
         {
-            FolderClean.ClenFolder(@"C:\Users\gridar\Desktop\Новаяпапка");
-            
+            //FolderClean.ClenFolder(@"C:\Users\gridar\Desktop\Новаяпапка");
+            Console.WriteLine(FolderSize.DirectorySize(new DirectoryInfo(@"C:\Users\gridar\Desktop\Новаяпапка")));
+
             Console.ReadLine();
         }    
     } 
