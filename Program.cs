@@ -17,9 +17,20 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Exception exception = new Exception("New Message");
+            try
+            {
+                throw new ArgumentOutOfRangeException("Сообщение об ошибке");
+            }
 
-            exception.HelpLink = "www.google.com";
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                Console.Read();
+            }
 
             Console.ReadKey();
         }
