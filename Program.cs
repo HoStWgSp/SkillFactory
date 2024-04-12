@@ -17,9 +17,9 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Exception exception = new Exception();
+            Exception exception = new Exception("New Message");
 
-            exception.Data.Add("", DateTime.Now);
+            exception.HelpLink = "www.google.com";
 
             Console.ReadKey();
         }
