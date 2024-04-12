@@ -19,11 +19,12 @@ namespace EducationProcess
         static void Main(string[] args)
         {
 
-            CalculateDelegate calcDelegate = Calculate1;
-            calcDelegate += Calculate2;
-            calcDelegate -= Calculate2;
+            CalculateDelegate calcDelegate1 = Calculate1;
+            CalculateDelegate calcDelegate2 = Calculate2;
 
-            calcDelegate.Invoke(100, 30);
+            CalculateDelegate calcDelegate3 = calcDelegate1 + calcDelegate2;
+
+            calcDelegate3.Invoke(100, 30);
 
 
             Console.ReadKey();
