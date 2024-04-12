@@ -20,9 +20,13 @@ namespace EducationProcess
         {
 
             CalculateDelegate calcDelegate = Calculate;
-            int result = calcDelegate.Invoke(100, 30);
 
+            int result = calcDelegate.Invoke(100, 30);
             Console.WriteLine(result);
+
+            result = calcDelegate.Invoke(100, 30);
+            Console.WriteLine(result);
+
             Console.ReadKey();
 
         }
