@@ -15,29 +15,40 @@ namespace EducationProcess
 {
     internal class Program
     {
-        delegate void CalculateDelegate(int a, int b);
+        delegate void ShowMessageDelegate();
+        delegate int SumDelegate(int a, int b, int c);
+        delegate bool CheckLengthDelegate(string row);
+
         static void Main(string[] args)
         {
+            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            showMessageDelegate.Invoke();
 
-            CalculateDelegate calcDelegate1 = Calculate1;
-            CalculateDelegate calcDelegate2 = Calculate2;
+            SumDelegate sumDelegate = Sum;
+            int result = sumDelegate.Invoke(1, 30, 120);
+            Console.WriteLine(result);
 
-            CalculateDelegate calcDelegate3 = calcDelegate1 + calcDelegate2;
+            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            bool status = checkLengthDelegate.Invoke("skill_factory");
+            Console.WriteLine(status);
 
-            calcDelegate3.Invoke(100, 30);
-
-
-            Console.ReadKey();
-
+            Console.ReadLine();
         }
 
-        static void Calculate1(int a, int b)
+        static void ShowMessage()
         {
-            Console.WriteLine(a - b);
+            Console.WriteLine("Hello World!");
         }
-        static void Calculate2(int a, int b)
+
+        static int Sum(int a, int b, int c)
         {
-            Console.WriteLine(a + b);
+            return a + b + c;
+        }
+
+        static bool CheckLength(string _row)
+        {
+            if (_row.Length > 3) return true;
+            return false;
         }
     }
 }
