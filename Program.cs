@@ -21,6 +21,7 @@ namespace EducationProcess
 
             CalculateDelegate calcDelegate = Calculate1;
             calcDelegate += Calculate2;
+            calcDelegate -= Calculate2;
 
             calcDelegate.Invoke(100, 30);
 
