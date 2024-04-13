@@ -15,14 +15,24 @@ namespace EducationProcess
 {
     internal class Program
     {
-        delegate int RandomNumberDelegate();
+        public delegate Car HandlerMethod();
+
+        public static Car CarHandler()
+        {
+            return null;
+        }
+        public static Lexus LexusHandler()
+        {
+            return null;
+        }
+
         static void Main(string[] args)
         {
-            RandomNumberDelegate randomNumberDelegate = () => new Random().Next(0, 100);
- 
-            int result = randomNumberDelegate.Invoke();
-            Console.WriteLine(result);
-            Console.Read();
+            HandlerMethod handlerLexus = LexusHandler;
+
+            Console.ReadKey();
         }
     }
+    class Car { }
+    class Lexus : Car { }
 }
