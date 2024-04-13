@@ -9,43 +9,57 @@ using System.Threading.Tasks.Dataflow;
 using System.Xml.Linq;
 using System;
 using System.IO;
+using System.Security.Cryptography;
+using System.Runtime.Serialization;
 
 
 namespace EducationProcess
 {
     class Program
     {
-        public delegate Parent HandlerMethod();
-        delegate void ChildInfo(Child child);
-
-        public static Parent ParentHandler()
-        {
-            return null;
-        }
-
-
-        public static Child ChildHandler()
-        {
-            return null;
-        }
-
+        static List<string> lastNames = new List<string>() { "Недоразвитовы", "Дебиловы", "Дацновы", "Имбициловы", "Недоношеновы" };
         static void Main(string[] args)
         {
-            ChildInfo childInfo = GetParentInfo;
-
-            childInfo.Invoke(new Child());
-
-            Console.Read();
-
+            Sort sort = new Sort();
+            sort.SortEvent += ShowSort;
+            bool tryAgain = true;
+            while (tryAgain)
+            {
+                try
+                {
+                    sort.Read();
+                    tryAgain = false;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Введите 1 или 2");
+                }
+            }
+            Console.ReadKey();
         }
-
-        public static void GetParentInfo(Parent p)
+        static void ShowSort(int number)
         {
-            Console.WriteLine(p.GetType());
+            switch (number)
+            {
+                case 1:
+                    var lnOne = lastNames.OrderBy(n => n);
+                    Console.WriteLine("Сортировка от А до Я:");
+                    foreach (string lno in lnOne)
+                    {
+                        Console.Write(lno + " ");
+                    }
+
+                break;
+                case 2:
+                    var lnTwo = lastNames.OrderByDescending(n => n);
+                    Console.WriteLine("Сортировка от А до Я:");
+                    foreach (string lnt in lnTwo)
+                    {
+                        Console.Write(lnt + " ");
+                    }
+                break;
+            }
         }
     }
 
-    class Parent { }
-
-    class Child : Parent { }
 }
