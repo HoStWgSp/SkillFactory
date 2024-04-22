@@ -20,36 +20,31 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            var user = new User();
-            var account = new Account();
+            Summ summ = new Summ();
+            Logger logger = new Logger();
 
-            IUpdater<Account> updater = new UserService();
+            Console.WriteLine("Введите первое слогаемое");
+            double X = DigEnt(logger);
+            Console.WriteLine("Введите второе слогаемое");
+            double Y = DigEnt(logger);
 
-            var userService = new UserService();
-            userService.Update(user);
+            summ.Sum(X, Y);
 
+            Console.WriteLine("Результат сложения: {0}", summ.result);
 
             Console.ReadKey();
         }
-        public class UserService : IUpdater<User>
+
+        private static double DigEnt(Logger logger)
         {
-            public void Update(User entity)
+            double Z;
+            while (!Double.TryParse(Console.ReadLine(), out Z))
             {
-
+                logger.Error();
             }
-        }
-        public interface IUpdater<in T>
-        {
-            void Update(T entity);
-        }
-        public class User
-        {
+            logger.Event(Z);
 
-        }
-
-        public class Account : User
-        {
-
+            return Z;
         }
     }
 }
