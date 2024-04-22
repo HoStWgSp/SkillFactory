@@ -11,54 +11,41 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Runtime.Serialization;
+using static EducationProcess.Program;
 
 
 namespace EducationProcess
 {
     class Program
     {
-        static List<string> lastNames = new List<string>() { "Недоразвитовы", "Дебиловы", "Дацновы", "Имбициловы", "Недоношеновы" };
-        static void Main(string[] args)
+        public class Manager : IManager
         {
-            Sort sort = new Sort();
-            sort.SortEvent += ShowSort;
-            bool tryAgain = true;
-            while (tryAgain)
+            public void Create()
             {
-                try
-                {
-                    sort.Read();
-                    tryAgain = false;
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Введите 1 или 2");
-                }
-            }
-            Console.ReadKey();
-        }
-        static void ShowSort(int number)
-        {
-            switch (number)
-            {
-                case 1:
-                    var lnOne = lastNames.OrderBy(n => n);
-                    Console.WriteLine("Сортировка от А до Я:");
-                    foreach (string lno in lnOne)
-                    {
-                        Console.Write(lno + " ");
-                    }
 
-                break;
-                case 2:
-                    var lnTwo = lastNames.OrderByDescending(n => n);
-                    Console.WriteLine("Сортировка от А до Я:");
-                    foreach (string lnt in lnTwo)
-                    {
-                        Console.Write(lnt + " ");
-                    }
-                break;
             }
+
+            public void Read()
+            {
+
+            }
+
+            public void Update()
+            {
+
+            }
+
+            public void Delete()
+            {
+
+            }
+        }
+        public interface IManager
+        {
+            void Create();
+            void Update();
+            void Read();
+            void Delete();
         }
     }
 
