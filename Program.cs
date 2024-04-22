@@ -20,11 +20,14 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
+            Worker worker = new Worker();
+            ((IWorker)worker).Build();
 
+            Console.ReadKey();
         }
         public class Worker : IWorker
         {
-            public void Build() { }
+            void IWorker.Build() { }
         }
         public interface IWorker
         {
