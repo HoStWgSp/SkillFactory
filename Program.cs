@@ -20,20 +20,15 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Writer writer = new Writer();
 
-            ((IWriter)writer).Write();
-
-            Console.ReadKey();
         }
-        public class Writer : IWriter
+        public class Worker : IWorker
         {
-            void IWriter.Write() { }
+            public void Build() { }
         }
-        public interface IWriter
+        public interface IWorker
         {
-            void Write();
+            public void Build();
         }
     }
-
 }
