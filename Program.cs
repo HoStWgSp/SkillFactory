@@ -20,18 +20,29 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Worker worker = new Worker();
-            ((IWorker)worker).Build();
 
             Console.ReadKey();
         }
-        public class Worker : IWorker
+
+        public class FileManager : IWriter, IReader, IMailer
         {
-            void IWorker.Build() { }
+            public void Write() { }
+            public void Read() { }
+            public void SendEmail() { }
         }
-        public interface IWorker
+        public interface IWriter
         {
-            public void Build();
+            void Write();
+        }
+
+        public interface IReader
+        {
+            void Read();
+        }
+
+        public interface IMailer
+        {
+            void SendEmail();
         }
     }
 }
