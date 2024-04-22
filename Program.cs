@@ -23,26 +23,25 @@ namespace EducationProcess
 
             Console.ReadKey();
         }
-
-        public class FileManager : IWriter, IReader, IMailer
+        public class Entity : ICreatable, IDeletable, IUpdatable
         {
-            public void Write() { }
-            public void Read() { }
-            public void SendEmail() { }
+            public void Create() { }
+            public void Update() { }
+            public void Delete() { }
         }
-        public interface IWriter
+        public interface ICreatable
         {
-            void Write();
-        }
-
-        public interface IReader
-        {
-            void Read();
+            void Create();
         }
 
-        public interface IMailer
+        public interface IDeletable
         {
-            void SendEmail();
+            void Delete();
+        }
+
+        public interface IUpdatable
+        {
+            void Update();
         }
     }
 }
