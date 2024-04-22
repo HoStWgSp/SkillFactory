@@ -23,25 +23,21 @@ namespace EducationProcess
 
             Console.ReadKey();
         }
-        public class Entity : ICreatable, IDeletable, IUpdatable
+        public class ElectronicBook : IBook, IDevice
         {
-            public void Create() { }
-            public void Update() { }
-            public void Delete() { }
+            void IBook.Read() { }
+            void IDevice.TurnOff() { }
+            void IDevice.TurnOn() { }
         }
-        public interface ICreatable
+        public interface IBook
         {
-            void Create();
-        }
-
-        public interface IDeletable
-        {
-            void Delete();
+            void Read();
         }
 
-        public interface IUpdatable
+        public interface IDevice
         {
-            void Update();
+            void TurnOn();
+            void TurnOff();
         }
     }
 }
