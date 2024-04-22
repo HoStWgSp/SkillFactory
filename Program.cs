@@ -18,34 +18,21 @@ namespace EducationProcess
 {
     class Program
     {
-        public class Manager : IManager
+        static void Main(string[] args)
         {
-            public void Create()
-            {
+            Writer writer = new Writer();
 
-            }
+            ((IWriter)writer).Write();
 
-            public void Read()
-            {
-
-            }
-
-            public void Update()
-            {
-
-            }
-
-            public void Delete()
-            {
-
-            }
+            Console.ReadKey();
         }
-        public interface IManager
+        public class Writer : IWriter
         {
-            void Create();
-            void Update();
-            void Read();
-            void Delete();
+            void IWriter.Write() { }
+        }
+        public interface IWriter
+        {
+            void Write();
         }
     }
 
