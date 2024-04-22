@@ -20,24 +20,36 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
+            var user = new User();
+            var account = new Account();
+
+            IUpdater<Account> updater = new UserService();
+
+            var userService = new UserService();
+            userService.Update(user);
+
 
             Console.ReadKey();
         }
-        public class ElectronicBook : IBook, IDevice
+        public class UserService : IUpdater<User>
         {
-            void IBook.Read() { }
-            void IDevice.TurnOff() { }
-            void IDevice.TurnOn() { }
+            public void Update(User entity)
+            {
+
+            }
         }
-        public interface IBook
+        public interface IUpdater<in T>
         {
-            void Read();
+            void Update(T entity);
+        }
+        public class User
+        {
+
         }
 
-        public interface IDevice
+        public class Account : User
         {
-            void TurnOn();
-            void TurnOff();
+
         }
     }
 }
