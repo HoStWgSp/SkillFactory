@@ -10,10 +10,10 @@ namespace UserTicketService.Test
     public class CalculatorTests
     {
         [Test]
-        public void SubtractionMustReturnCorrectValue()
+        public void Subtraction_MustReturnCorrectValue()
         {
             var calculator = new Calculator();
-            Assert.That(calculator.Subtraction(300, 10) == 290);
+            Assert.That(calculator.Subtraction(300, 10) == 30);
         }
     }
 }
