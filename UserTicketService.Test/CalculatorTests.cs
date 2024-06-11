@@ -10,10 +10,10 @@ namespace UserTicketService.Test
     public class CalculatorTests
     {
         [Test]
-        public void Subtraction_MustReturnCorrectValue()
+        public void Division_MustThrowException()
         {
             var calculator = new Calculator();
-            Assert.That(calculator.Subtraction(300, 10) == 30);
+            Assert.Throws<DivideByZeroException>(() => calculator.Division(30, 0));
         }
     }
 }
