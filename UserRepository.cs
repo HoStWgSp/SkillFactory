@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserTicketService
 {
-    public class Calculator
+    public class UserRepository
     {
-        public int Division(int a, int b)
-        {
-            return a/b;
-        }
     }
 }
