@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserTicketService.Interfaces;
 using Moq;
+using UserTicketService.Interfaces;
 
 
 namespace UserTicketService.Tests
@@ -30,6 +30,7 @@ namespace UserTicketService.Tests
                     Name = "Алексей"
                   },
             };
+            
             Mock<IUserRepository> mock = new Mock<IUserRepository>();
 
             mock.Setup(v => v.FindAll()).Returns(list);
