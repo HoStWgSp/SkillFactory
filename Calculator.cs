@@ -8,14 +8,24 @@ namespace UserTicketService
 {
     public class Calculator
     {
-        public int Addition(int a, int b, int c)
+        public int Additional(int a, int b)
         {
-            return a + b + c;
+            return a + b;
         }
 
-        public int Multiplication(int a, int b, int c)
+        public int Subtraction(int a, int b)
         {
-            return a * b * c;
+            return a - b;
+        }
+
+        public int Miltiplication(int a, int b)
+        {
+            return a * b;
+        }
+
+        public int Division(int a, int b)
+        {
+            return a / b;
         }
     }
 }
