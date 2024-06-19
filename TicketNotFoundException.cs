@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserTicketService.Interfaces
+namespace UserTicketService
 {
-    public interface IUserRepository
-    {        
-        IEnumerable<User> FindAll();
+    public class TicketNotFoundException: Exception
+    {
     }
 }

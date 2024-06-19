@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserTicketService
+namespace UserTicketService.Interfaces
 {
-    public class User
+    public interface ITicketService
     {
-        public string Name
-        {
-            get;
-            set;
-        }
+        int GetTicketPrice(int ticketId);
     }
 }
