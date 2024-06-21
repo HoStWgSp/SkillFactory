@@ -1,5 +1,4 @@
 ﻿
-
 using EducationProcess.Components;
 
 namespace EducationProcess
@@ -8,20 +7,10 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            Component rootFolder = new Folder("Root");
+            IdeFacade ideFacade = new IdeFacade(new Editor(), new Compiller(), new Runtime());
 
-            Component myFile = new Components.File("NewFile.txt");
-
-            Folder documentFolder = new Folder("MyDocuments");
-
-            rootFolder.Add(myFile);
-            rootFolder.Add(documentFolder);
-
-            Component MyFile2 = new Components.File("NewFile2.txt");
-            documentFolder.Add(MyFile2);
-
-
-            rootFolder.Display();
+            ideFacade.Start("Console.WriteLine(\"Hello World!\");");
+            ideFacade.Stop();
 
             Console.ReadKey();
         }
