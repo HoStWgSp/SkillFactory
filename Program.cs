@@ -1,6 +1,6 @@
 ﻿
 
-using EducationProcess.Devices;
+using EducationProcess.Components;
 
 namespace EducationProcess
 {
@@ -8,16 +8,20 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            var imageDrawer = new ImageDrawer();
+            Component rootFolder = new Folder("Root");
 
-            PaperPrinter paperPrinter = new PaperPrinter();
+            Component myFile = new Components.File("NewFile.txt");
 
-            imageDrawer.DrawWith(paperPrinter);
+            Folder documentFolder = new Folder("MyDocuments");
 
-            CanvasPainter canvasPainter = new CanvasPainter();
+            rootFolder.Add(myFile);
+            rootFolder.Add(documentFolder);
 
-            IPrinter imagePrinter = new CanvasPainterToPrinterAdapter(canvasPainter);
-            imageDrawer.DrawWith(imagePrinter);
+            Component MyFile2 = new Components.File("NewFile2.txt");
+            documentFolder.Add(MyFile2);
+
+
+            rootFolder.Display();
 
             Console.ReadKey();
         }
