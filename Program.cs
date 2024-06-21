@@ -1,20 +1,23 @@
 ﻿
 
+using EducationProcess.Devices;
+
 namespace EducationProcess
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            string messageText = "Ваш номер заказа - 83456";
+            var imageDrawer = new ImageDrawer();
 
-            // Отправляем заказ по SMS
-            MessageSender sender = new SmsMessageSender("+79856455320");
-            Message smsMessage = sender.Send(messageText);
+            PaperPrinter paperPrinter = new PaperPrinter();
 
-            // Отправляем заказ по e-mail
-            sender = new EmailMessageSender("orders@myshop.com");
-            Message message = sender.Send(messageText);
+            imageDrawer.DrawWith(paperPrinter);
+
+            CanvasPainter canvasPainter = new CanvasPainter();
+
+            IPrinter imagePrinter = new CanvasPainterToPrinterAdapter(canvasPainter);
+            imageDrawer.DrawWith(imagePrinter);
 
             Console.ReadKey();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EducationProcess.Devices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace EducationProcess
 {
-    internal class SmsMessage : Message
+    internal class ImageDrawer
     {
-        public SmsMessage()
+        public void DrawWith(IPrinter printer)
         {
-            Console.WriteLine("SMS отправдено");
+            printer.Print();
         }
     }
 }

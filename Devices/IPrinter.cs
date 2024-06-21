@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EducationProcess
+namespace EducationProcess.Devices
 {
-    abstract class Message
+    internal interface IPrinter
     {
+        void Print();
     }
 }
