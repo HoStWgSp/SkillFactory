@@ -1,4 +1,4 @@
-﻿using EducationProcess.Factories;
+﻿
 
 namespace EducationProcess
 {
@@ -6,16 +6,15 @@ namespace EducationProcess
     {
         static void Main(string[] args)
         {
-            var dragon = new Monster(new DragonFactory());
-            dragon.Move();
-            dragon.Hit();
+            string messageText = "Ваш номер заказа - 83456";
 
-            Console.WriteLine();
+            // Отправляем заказ по SMS
+            MessageSender sender = new SmsMessageSender("+79856455320");
+            Message smsMessage = sender.Send(messageText);
 
-            var orc = new Monster(new OrcFactory());
-            orc.Move();
-            orc.Hit();  
-            Console.WriteLine();
+            // Отправляем заказ по e-mail
+            sender = new EmailMessageSender("orders@myshop.com");
+            Message message = sender.Send(messageText);
 
             Console.ReadKey();
         }

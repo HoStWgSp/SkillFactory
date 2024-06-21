@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EducationProcess.Movements
+namespace EducationProcess
 {
-    interface IMovement
+    abstract class Message
     {
-        void Start();
     }
 }
